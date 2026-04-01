@@ -1,0 +1,180 @@
+ASSIGNMENT 1: GIT — STEP BY STEP PROCESS
+🔹 Step 1: Open VS Code
+Open VS Code
+Click File → Open Folder
+Create a new folder named LibrarySystem
+Open that folder
+🔹 Step 2: Open Terminal
+In VS Code:
+Click Terminal → New Terminal
+Terminal opens at bottom
+🔹 Step 3: Initialize Git
+
+👉 Type in terminal:
+
+git init
+🔹 Step 4: Create Python File
+
+👉 In terminal:
+
+touch app.py
+
+👉 Open app.py and type:
+
+print("Hello Library")
+🔹 Step 5: Add and Commit
+
+👉 In terminal:
+
+git add app.py
+git commit -m "first commit"
+🔹 Step 6: Modify and Track Changes
+
+👉 Change code in app.py
+
+👉 Then type:
+
+git diff
+git add app.py
+git commit -m "updated"
+git log
+🔹 Step 7: Create Branch
+
+👉 In terminal:
+
+git branch feature
+git checkout feature
+
+👉 Modify file → then:
+
+git add .
+git commit -m "feature added"
+git checkout main
+🔹 Step 8: Merge Branch
+
+👉 In terminal:
+
+git merge feature
+🔹 Step 9: Push to GitHub
+
+👉 Go to GitHub (browser) → Create new repository
+
+👉 Then in terminal:
+
+git remote add origin <repository-url>
+git push -u origin main
+🚀 ASSIGNMENT 2: JENKINS — STEP BY STEP
+🔹 Step 1: Open Jenkins
+
+👉 Open browser:
+
+http://localhost:8080
+🔹 Step 2: Create Job
+Click New Item
+Enter name: test-job
+Select Freestyle Project
+Click OK
+🔹 Step 3: Add Build Step
+Scroll down → Build
+Click:
+👉 Add build step → Execute Windows batch command
+
+👉 Type:
+
+echo Hello Jenkins
+
+👉 Click Save
+
+🔹 Step 4: Run Job
+Click Build Now
+Click build number → Console Output
+🔹 Step 5: Connect GitHub
+Open job → Configure
+Go to Source Code Management
+Select Git
+Paste repository URL
+🔹 Step 6: Enable Auto Build
+In same page:
+Go to Build Triggers
+Select Poll SCM
+
+👉 Type:
+
+* * * * *
+🚀 ASSIGNMENT 3: MAVEN — STEP BY STEP
+🔹 Step 1: Create Project Structure
+
+👉 In VS Code create:
+
+project/
+ ├── pom.xml
+ ├── src/main/java/com/example/App.java
+ └── src/test/java/com/example/AppTest.java
+🔹 Step 2: Write Code
+
+👉 App.java
+
+public class App {
+    public static String grade(int marks){
+        if(marks>90) return "A";
+        else return "B";
+    }
+}
+🔹 Step 3: Run Maven Commands
+
+👉 In terminal:
+
+mvn compile
+mvn test
+mvn clean install
+🔹 Step 4: Jenkins Pipeline
+Jenkins → New Item
+Select Pipeline
+
+👉 Paste:
+
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
+    }
+}
+
+👉 Click Save → Build Now
+
+🚀 ASSIGNMENT 4: DOCKER + KUBERNETES
+🔹 Step 1: Create Files (VS Code)
+
+👉 index.html
+
+<h1>Hello DevOps</h1>
+
+👉 Dockerfile
+
+FROM nginx
+COPY . /usr/share/nginx/html
+
+👉 deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+🔹 Step 2: Enable Kubernetes
+Open Docker Desktop
+Go to Settings → Kubernetes
+Click Enable Kubernetes
+🔹 Step 3: Jenkins Pipeline
+Jenkins → New Item → Pipeline
+Paste script → Build Now
+🔹 Step 4: Output
+
+👉 Open browser:
+
+http://localhost:30010
